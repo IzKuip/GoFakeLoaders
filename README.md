@@ -29,3 +29,19 @@ progressSpinner(2000, "Progress Spinner")
 Here is a screenshot of all three loaders in their completed state:
 
 ![Demo](demo.png)
+
+## Dependencies
+This project requires the following dependencies:
+
+* `fmt`
+* `strconv`
+* `time`
+
+You can import them using this code snippet:
+```go
+import (
+  "fmt"
+  "strconv"
+  "time"
+)
+```
