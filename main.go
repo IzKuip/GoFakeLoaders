@@ -35,24 +35,31 @@ func initFakeLoaders() {
 
 func progress(speed int, caption string) {
 	fmt.Printf("\n%s %s 0%%\n", WorkingText, caption)
+
 	for i := 0; i < 101; i++ {
 		fmt.Printf("\033[1A%s %s %s%%\n", WorkingText, caption, strconv.Itoa(i))
+
 		time.Sleep(time.Millisecond * time.Duration(speed/100))
 	}
+
 	fmt.Printf("\033[1A%s %s\n", DoneText, caption)
 }
 
 func progressBar(speed int, caption string) {
 	fmt.Printf("%s %s%s%s %s\033[59D", caption, PBStartPiece, PBBackground, PBEndPiece, WorkingText)
+
 	for i := 0; i < 50; i++ {
 		fmt.Print(PBPiece)
+
 		time.Sleep(time.Millisecond * time.Duration(speed/50))
 	}
+
 	fmt.Printf("%s %s\n", PBEndPiece, DoneText)
 }
 
 func progressSpinner(duration int, caption string) {
 	fmt.Printf("- %s\n", caption)
+
 	for i := 0; i < (duration/100)/4; i++ {
 		fmt.Printf("\033[1A\\ %s\n", caption)
 		time.Sleep(time.Millisecond * time.Duration(100))
